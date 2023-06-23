@@ -51,6 +51,16 @@ SELECT karyawan.nik, karyawan.nama, karyawan.id_dept
 
 ### 5. Tampilkan nik dan nama karyawan untuk semua karyawan yang bekerja di departemen yang sama dengan karyawan dengan nama yang mengandung huruf 'K' dan yang gajinya lebih besar dari rata-rata gaji semua karyawan!
 ```
+SELECT DISTINCT k1.nik, k1.nama
+    -> FROM karyawan k1
+    -> JOIN karyawan k2 ON k1.id_dept = k2.id_dept
+    -> WHERE k1.gaji_pokok > (
+    ->     SELECT AVG(gaji_pokok) FROM karyawan
+    ->     WHERE nama LIKE '%K%'
+    -> );
+```
+![image](https://github.com/Aliyahasmarani/SKsubqueri/assets/115197672/ef75ea27-7f90-44b0-b0af-4d1a485f8204)
+
 
 
 
